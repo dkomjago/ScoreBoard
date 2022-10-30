@@ -109,11 +109,29 @@ class FootballWordCupScoreBoardTests {
             val game1 = getGame(5, 5)
             val game2 = getGame(1, 2)
             val game3 = getGame(4, 3)
-
             footballWordCupScoreBoard.archive.addAll(listOf(game1, game2, game3))
+
             val result = footballWordCupScoreBoard.getGamesOrderedByTotalScore()
 
             assertThat(result, containsInRelativeOrder(game1, game3, game2))
+        }
+
+        @Test
+        fun `games with same total score ordered by recency`() {
+            val game1 = Game("testName1", "testName2")
+            val game2 = Game("testName3", "testName4")
+            val game3 = Game(team1Name, team2Name)
+
+
+            footballWordCupScoreBoard.archive.run {
+                add(game1)
+                add(game2)
+                add(game3)
+            }
+
+            val result = footballWordCupScoreBoard.getGamesOrderedByTotalScore()
+
+            assertThat(result, containsInRelativeOrder(game1, game2, game3))
         }
     }
 

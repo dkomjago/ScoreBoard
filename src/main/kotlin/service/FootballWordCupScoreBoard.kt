@@ -6,7 +6,7 @@ import java.lang.IllegalArgumentException
 class FootballWordCupScoreBoard : ScoreBoard {
 
     internal var currentGame: Game? = null
-    internal val archive: MutableSet<Game> = sortedSetOf()
+    internal val archive: MutableList<Game> = mutableListOf()
 
     override fun startGame(homeTeam: String, awayTeam: String) {
         if (homeTeam.equals(awayTeam, true)) throw IllegalArgumentException()
@@ -16,7 +16,12 @@ class FootballWordCupScoreBoard : ScoreBoard {
 
     override fun finishGame() {
         currentGame?.let { archive.add(it) } ?: throw IllegalStateException()
+        sortArchive()
         currentGame = null
+    }
+
+    private fun sortArchive() {
+        archive.sort()
     }
 
     override fun update(score: Pair<Int, Int>) {
@@ -28,7 +33,7 @@ class FootballWordCupScoreBoard : ScoreBoard {
         } ?: throw IllegalStateException()
     }
 
-    override fun getGamesOrderedByTotalScore(): Set<Game> {
+    override fun getGamesOrderedByTotalScore(): List<Game> {
         return archive
     }
 }

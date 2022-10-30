@@ -10,5 +10,5 @@ interface ScoreBoard {
 
     fun update(score: Pair<Int, Int>)
 
-    fun getGamesOrderedByTotalScore(): Set<Game>
+    fun getGamesOrderedByTotalScore(): List<Game>
 }
