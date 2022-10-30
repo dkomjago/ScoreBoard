@@ -4,6 +4,9 @@ import domain.Game
 
 class FootballWordCupScoreBoard : ScoreBoard {
 
+    internal var currentGame: Game? = null
+    internal val archive: MutableSet<Game> = sortedSetOf()
+
     override fun startGame(homeTeam: String, awayTeam: String) {
         //TODO
     }
