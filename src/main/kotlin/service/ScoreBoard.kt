@@ -4,7 +4,7 @@ import domain.Game
 
 interface ScoreBoard {
 
-    fun startGame(homeTeam: String, awayTeam:String)
+    fun startGame(homeTeam: String, awayTeam: String)
 
     fun finishGame()
 
