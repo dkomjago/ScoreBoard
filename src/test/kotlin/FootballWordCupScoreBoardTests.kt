@@ -92,7 +92,7 @@ class FootballWordCupScoreBoardTests {
     @Nested
     inner class GetGamesByTotalScore {
         @Test
-        fun `no games returns empty set`() {
+        fun `no games returns empty collection`() {
             val result = footballWordCupScoreBoard.getGamesOrderedByTotalScore()
 
             assertThat(result, IsEmptyCollection())
