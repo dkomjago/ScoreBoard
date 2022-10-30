@@ -1,23 +1,27 @@
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
+import service.FootballWordCupScoreBoard
 
-class ScoreBoardTests {
+class FootballWordCupScoreBoardTests {
+
+    val footballWordCupScoreBoard = FootballWordCupScoreBoard()
+
 
     @Nested
     inner class StartGame {
 
         @Test
-        fun `doesn't allow duplicate team name`() {
+        fun `throws IllegalArgumentException for duplicate team name`() {
             //TODO
         }
 
         @Test
-        fun `doesn't allow duplicate team name with different case`() {
+        fun `throws IllegalArgumentException for duplicate team name with different case`() {
             //TODO
         }
 
         @Test
-        fun `throws if game already running`() {
+        fun `throws IllegalStateException if game already running`() {
             //TODO
         }
     }
@@ -35,7 +39,7 @@ class ScoreBoardTests {
         }
 
         @Test
-        fun `throws if game not running`() {
+        fun `throws if IllegalStateException game not running`() {
             //TODO
         }
     }
@@ -43,13 +47,13 @@ class ScoreBoardTests {
     @Nested
     inner class Update {
         @Test
-        fun `doesn't allow negative values`() {
+        fun `throws IllegalArgumentException for negative values`() {
             //TODO
 
         }
 
         @Test
-        fun `throws if game not running`() {
+        fun `throws if IllegalStateException game not running`() {
             //TODO
         }
     }
@@ -57,7 +61,7 @@ class ScoreBoardTests {
     @Nested
     inner class GetGamesByTotalScore {
         @Test
-        fun `no games returns empty collection`() {
+        fun `no games returns empty set`() {
             //TODO
         }
 

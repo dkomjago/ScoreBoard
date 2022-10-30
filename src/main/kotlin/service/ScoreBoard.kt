@@ -1,12 +1,14 @@
 package service
 
+import domain.Game
+
 interface ScoreBoard {
 
-    fun startGame()
+    fun startGame(homeTeam: String, awayTeam:String)
 
     fun finishGame()
 
-    fun update()
+    fun update(score: Pair<Int, Int>)
 
-    fun getGamesOrderedByTotalScore()
+    fun getGamesOrderedByTotalScore(): Set<Game>
 }
